@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Perkenalan Bahasa Arab & Inggris</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b3d2e;
+            margin: 0;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        /* ================= LOGO + CAHAYA ================= */
+        .logo-glow {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .logo-glow::before {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle,
+                rgba(0, 255, 180, 0.9),
+                rgba(0, 255, 180, 0.4),
+                transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 2.5s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .top-right-image {
+            width: 70px;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.25); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        /* ================= TOMBOL AUDIO ================= */
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #145a32;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0,255,180,0.6);
+            z-index: 20;
+        }
+
+        .audio-control:hover {
+            background-color: #1e8449;
+        }
+
+        /* ================= JUDUL ================= */
+        h1, h2 {
+            text-align: center;
+            color: #e6fffa;
+        }
+
+        /* ================= TABEL ================= */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            color: #000000;
+            min-width: 600px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #145a32;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #e6f9f0;
+        }
+
+        .arab {
+            font-size: 24px;
+            direction: rtl;
+            font-family: "Amiri", "Traditional Arabic", serif;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #d1fae5;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= AUDIO BACKSOUND ================= -->
+<audio id="backsound" autoplay loop muted>
+    <source src="ADNANI.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+</audio>
+
+<!-- ================= LOGO ================= -->
+<div class="logo-glow">
+    <img src="miki.png" alt="Logo Sekolah" class="top-right-image">
+</div>
+
+<h1>Materi Perkenalan Diri</h1>
+<h2>Bahasa Arab & Bahasa Inggris</h2>
+
+<h2>Bahasa Arab (التَّعَارُفُ)</h2>
+<div class="table-container">
+<table>
+    <tr>
+        <th>No</th>
+        <th>Bahasa Arab</th>
+        <th>Arti Bahasa Indonesia</th>
+    </tr>
+    <tr><td>1</td><td class="arab">اَلسَّلَامُ عَلَيْكُمْ</td><td>Semoga keselamatan tercurah kepadamu</td></tr>
+    <tr><td>2</td><td class="arab">وَعَلَيْكُمُ السَّلَامُ</td><td>Dan semoga keselamatan juga untukmu</td></tr>
+    <tr><td>3</td><td class="arab">اِسْمِي أَحْمَدُ</td><td>Nama saya Ahmad</td></tr>
+    <tr><td>4</td><td class="arab">أَنَا أَحْمَدُ</td><td>Saya Ahmad</td></tr>
+</table>
+</div>
+
+<h2>Bahasa Inggris (Introduction)</h2>
+<div class="table-container">
+<table>
+    <tr>
+        <th>No</th>
+        <th>Bahasa Inggris</th>
+        <th>Arti Bahasa Indonesia</th>
+    </tr>
+    <tr><td>1</td><td>Hello!</td><td>Halo!</td></tr>
+    <tr><td>2</td><td>My name is Ahmad.</td><td>Nama saya Ahmad</td></tr>
+    <tr><td>3</td><td>Nice to meet you.</td><td>Senang bertemu denganmu</td></tr>
+</table>
+</div>
+
+<footer>
+    <p>© Materi Perkenalan | Bahasa Arab & Bahasa Inggris</p>
+</footer>
+
+<!-- ================= SCRIPT AUDIO ================= -->
+<button class="audio-control" onclick="toggleAudio()">🔊 Musik</button>
+
+<script>
+    const audio = document.getElementById("backsound");
+    audio.volume = 0.25; // volume pelan
+
+    // Aktifkan suara setelah interaksi pertama
+    document.addEventListener("click", () => {
+        audio.muted = false;
+        audio.play();
+    }, { once: true });
+
+    function toggleAudio() {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+
+</body>
+</html>
